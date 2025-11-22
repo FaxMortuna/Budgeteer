@@ -20,6 +20,10 @@ export const BudgetProvider = ({ children }) => {
         return savedBudget ? parseFloat(savedBudget) : 0;
     });
 
+    const [theme, setTheme] = useState(() => {
+        return localStorage.getItem('budget_tracker_theme') || 'dark';
+    });
+
     // Save to localStorage whenever state changes
     useEffect(() => {
         localStorage.setItem('budget_tracker_expenses', JSON.stringify(expenses));
@@ -28,6 +32,11 @@ export const BudgetProvider = ({ children }) => {
     useEffect(() => {
         localStorage.setItem('budget_tracker_budget', budget.toString());
     }, [budget]);
+
+    useEffect(() => {
+        localStorage.setItem('budget_tracker_theme', theme);
+        document.documentElement.setAttribute('data-theme', theme);
+    }, [theme]);
 
     // Actions
     const addExpense = (name, amount, date = new Date()) => {
@@ -58,14 +67,20 @@ export const BudgetProvider = ({ children }) => {
         return expenses.filter((expense) => expense.date.startsWith(monthStr));
     };
 
+    const toggleTheme = () => {
+        setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    };
+
     const value = {
         expenses,
         budget,
+        theme,
         setBudget,
         addExpense,
         deleteExpense,
         editExpense,
         getExpensesByMonth,
+        toggleTheme,
     };
 
     return (

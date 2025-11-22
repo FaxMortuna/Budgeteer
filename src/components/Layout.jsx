@@ -1,4 +1,5 @@
 import React from 'react';
+import ThemeToggle from './ThemeToggle';
 
 const Layout = ({ children }) => {
     return (
@@ -11,19 +12,20 @@ const Layout = ({ children }) => {
             flexDirection: 'column',
             padding: '2rem 1rem'
         }}>
-            <header style={{ marginBottom: '1rem', flexShrink: 0 }}>
-                <h1 style={{
-                    fontSize: '2.5rem',
-                    fontWeight: '800',
-                    background: 'linear-gradient(to right, #fff, #aaa)',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    marginBottom: '0.5rem',
-                    marginTop: 0
-                }}>
-                    Budget Tracker
-                </h1>
-                <p style={{ color: 'var(--text-muted)', margin: 0 }}>Master your monthly finances</p>
+            <header style={{ marginBottom: '1rem', flexShrink: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div style={{ textAlign: 'left' }}>
+                    <h1 style={{
+                        fontSize: '2.5rem',
+                        fontWeight: '800',
+                        color: 'var(--text-main)',
+                        marginBottom: '0.5rem',
+                        marginTop: 0
+                    }}>
+                        Budget Tracker
+                    </h1>
+                    <p style={{ color: 'var(--text-muted)', margin: 0 }}>Master your monthly finances</p>
+                </div>
+                <ThemeToggle />
             </header>
             <main style={{
                 flex: 1,
