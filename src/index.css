@@ -2,15 +2,15 @@
   --primary-hue: 250;
   --primary-sat: 80%;
   --primary-light: 60%;
-  
+
   --bg-dark: hsl(240, 10%, 10%);
   --bg-card: hsl(240, 10%, 15%);
   --text-main: hsl(0, 0%, 100%);
   --text-muted: hsl(240, 5%, 70%);
-  
+
   --accent: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light));
   --accent-glow: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.5);
-  
+
   --danger: hsl(0, 70%, 60%);
   --success: hsl(150, 60%, 50%);
 
@@ -28,6 +28,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   display: flex;
@@ -35,14 +39,19 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background: radial-gradient(circle at top left, #1a1a2e, var(--bg-dark));
+  overflow: hidden;
+  /* Prevent body scroll */
 }
 
 #root {
   width: 100%;
-  max-width: 1280px;
+  height: 100vh;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0;
+  /* Remove padding to handle it in Layout */
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 
 button {
@@ -93,9 +102,9 @@ input:focus {
   background-color: var(--bg-card);
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
 }
 

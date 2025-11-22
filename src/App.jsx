@@ -13,10 +13,14 @@ function App() {
   return (
     <BudgetProvider>
       <Layout>
-        <MonthSelector currentMonth={currentMonth} setCurrentMonth={setCurrentMonth} />
-        <BudgetOverview currentMonth={currentMonth} />
-        <ExpenseForm />
-        <ExpenseList currentMonth={currentMonth} />
+        <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <MonthSelector currentMonth={currentMonth} setCurrentMonth={setCurrentMonth} />
+          <BudgetOverview currentMonth={currentMonth} />
+          <ExpenseForm />
+        </div>
+        <div style={{ flex: 1, overflowY: 'auto', minHeight: 0, paddingRight: '5px' }}>
+          <ExpenseList currentMonth={currentMonth} />
+        </div>
       </Layout>
     </BudgetProvider>
   );
