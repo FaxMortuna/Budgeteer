@@ -13,17 +13,21 @@ const Layout = ({ children }) => {
             padding: '2rem 1rem'
         }}>
             <header style={{ marginBottom: '1rem', flexShrink: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div style={{ textAlign: 'left' }}>
-                    <h1 style={{
-                        fontSize: '2.5rem',
-                        fontWeight: '800',
-                        color: 'var(--text-main)',
-                        marginBottom: '0.5rem',
-                        marginTop: 0
-                    }}>
-                        Budget Tracker
-                    </h1>
-                    <p style={{ color: 'var(--text-muted)', margin: 0 }}>Master your monthly finances</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                    <img src="/favicon.png" alt="Budget Tracker Logo" style={{ width: '48px', height: '48px' }} />
+                    <div style={{ textAlign: 'left' }}>
+                        <h1 style={{
+                            fontSize: '2.5rem',
+                            fontWeight: '800',
+                            color: 'var(--text-main)',
+                            marginBottom: '0.5rem',
+                            marginTop: 0,
+                            lineHeight: 1
+                        }}>
+                            Budgeteer
+                        </h1>
+                        <p style={{ color: 'var(--text-muted)', margin: 0 }}>Master your monthly finances</p>
+                    </div>
                 </div>
                 <ThemeToggle />
             </header>

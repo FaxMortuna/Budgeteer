@@ -24,6 +24,7 @@ const ExpenseList = ({ currentMonth }) => {
                 {sortedExpenses.map((expense) => (
                     <div
                         key={expense.id}
+                        className="expense-item"
                         style={{
                             display: 'flex',
                             justifyContent: 'space-between',
@@ -31,7 +32,8 @@ const ExpenseList = ({ currentMonth }) => {
                             padding: '1rem',
                             background: 'rgba(255,255,255,0.03)',
                             borderRadius: '8px',
-                            border: '1px solid rgba(255,255,255,0.02)'
+                            border: '1px solid rgba(255,255,255,0.02)',
+                            transition: 'all 0.2s ease'
                         }}
                     >
                         <div>
@@ -50,7 +52,8 @@ const ExpenseList = ({ currentMonth }) => {
                                     padding: '0.4em',
                                     background: 'transparent',
                                     color: 'var(--text-muted)',
-                                    border: 'none'
+                                    border: 'none',
+                                    cursor: 'pointer'
                                 }}
                                 title="Delete"
                             >

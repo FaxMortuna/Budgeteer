@@ -60,7 +60,7 @@ const BudgetOverview = ({ currentMonth }) => {
                     style={{
                         height: '100%',
                         width: `${percentage}%`,
-                        background: percentage > 100 ? 'var(--danger)' : 'var(--accent)',
+                        background: percentage > 100 ? 'var(--danger)' : 'var(--accent-secondary)',
                         transition: 'width 0.5s ease-in-out'
                     }}
                 />

@@ -1,18 +1,21 @@
 :root {
-  --primary-hue: 250;
-  --primary-sat: 80%;
-  --primary-light: 60%;
+  --primary-hue: 265;
+  --primary-sat: 85%;
+  --primary-light: 65%;
 
-  --bg-dark: hsl(240, 10%, 10%);
-  --bg-card: hsl(240, 10%, 15%);
+  --bg-dark: hsl(240, 15%, 8%);
+  --bg-gradient-start: #1a1a2e;
+  --bg-card: hsl(240, 15%, 12%);
   --text-main: hsl(0, 0%, 100%);
-  --text-muted: hsl(240, 5%, 70%);
+  --text-muted: hsl(240, 8%, 75%);
 
   --accent: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light));
-  --accent-glow: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.5);
+  --accent-glow: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.6);
+  --accent-secondary: hsl(150, 100%, 45%);
+  /* Neon Green from logo */
 
-  --danger: hsl(0, 70%, 60%);
-  --success: hsl(150, 60%, 50%);
+  --danger: hsl(0, 80%, 65%);
+  --success: var(--accent-secondary);
 
   font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -30,6 +33,7 @@
 
 [data-theme="light"] {
   --bg-dark: hsl(240, 10%, 95%);
+  --bg-gradient-start: hsl(240, 10%, 90%);
   --bg-card: hsl(0, 0%, 100%);
   --text-main: hsl(240, 10%, 10%);
   --text-muted: hsl(240, 5%, 40%);
@@ -50,7 +54,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: radial-gradient(circle at top left, #1a1a2e, var(--bg-dark));
+  background: radial-gradient(circle at top left, var(--bg-gradient-start), var(--bg-dark));
   overflow: hidden;
   /* Prevent body scroll */
 }
@@ -136,4 +140,62 @@ input:focus {
 
 .text-success {
   color: var(--success);
+}
+
+/* Toggle Switch */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  margin: 0;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--text-muted);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: var(--text-muted);
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked+.slider {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+input:checked+.slider:before {
+  transform: translateX(24px);
+  background-color: white;
+}
+
+.expense-item:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: var(--accent-glow) !important;
+  box-shadow: 0 0 10px var(--accent-glow);
+  transform: translateY(-2px);
 }
