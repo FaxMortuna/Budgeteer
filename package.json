@@ -1,6 +1,7 @@
 {
   "name": "budgeteer",
   "private": true,
+  "homepage": "https://FaxMortuna.github.io/Budgeteer",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
